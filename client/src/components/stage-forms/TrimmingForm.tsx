@@ -68,9 +68,8 @@ export default function TrimmingForm({ className }: TrimmingFormProps) {
   // This query would need to be updated in a real app to fetch from the correct endpoint
   const { data: partData, isLoading: isLoadingPart } = useQuery({
     queryKey: ['/api/heating-forging', form.watch('partCode')],
-    enabled: !!form.watch('partCode') && form.watch('partCode').length > 3,
+    enabled: false, // Disabled for demonstration
     queryFn: async () => {
-      // In a real app, you'd have an endpoint to get a forged part by its code
       const response = await fetch(`/api/heating-forging/${form.watch('partCode')}`, {
         credentials: "include",
       });
@@ -88,9 +87,7 @@ export default function TrimmingForm({ className }: TrimmingFormProps) {
     onError: () => {
       setForgedPart(null);
       form.setValue("forgedPartId", 0);
-    },
-    // For this demonstration, we're using a mock enabled: false
-    enabled: false
+    }
   });
 
   const createTrimming = useMutation({
