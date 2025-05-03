@@ -113,7 +113,7 @@ export default function OilingPackingForm() {
       toast({
         title: "Part already scanned",
         description: `Part ${code} has already been added to the list.`,
-        variant: "warning",
+        variant: "destructive",
       });
       return;
     }

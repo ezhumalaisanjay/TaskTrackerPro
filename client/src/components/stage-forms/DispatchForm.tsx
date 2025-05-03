@@ -81,7 +81,7 @@ export default function DispatchForm() {
       toast({
         title: "Dispatch completed",
         description: "The dispatch has been successfully recorded.",
-        variant: "success",
+
       });
       
       queryClient.invalidateQueries({ queryKey: ["/api/dispatch"] });
@@ -121,7 +121,7 @@ export default function DispatchForm() {
       toast({
         title: "Part already scanned",
         description: `Part ${code} has already been added to the list.`,
-        variant: "warning",
+        variant: "destructive",
       });
       return;
     }

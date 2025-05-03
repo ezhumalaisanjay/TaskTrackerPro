@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import { useAuth } from "@/context/AuthContext";
-import { useLocation } from "wouter";
+import { useState } from "react";
+import { Link, useLocation } from "wouter";
 import { Sidebar } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import {
@@ -47,34 +46,14 @@ import OilingPackingForm from "@/components/stage-forms/OilingPackingForm";
 import DispatchForm from "@/components/stage-forms/DispatchForm";
 
 export default function Dashboard() {
-  const { isAuthenticated, loading } = useAuth();
   const [, setLocation] = useLocation();
   const [activeTab, setActiveTab] = useState("overview");
   const [activeStage, setActiveStage] = useState<number | null>(null);
-
-  useEffect(() => {
-    // Redirect to login if not authenticated and not loading
-    if (!isAuthenticated && !loading) {
-      setLocation("/login");
-    }
-  }, [isAuthenticated, loading, setLocation]);
 
   const handleStageSelect = (stageNumber: number) => {
     setActiveTab("process");
     setActiveStage(stageNumber);
   };
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
-      </div>
-    );
-  }
-
-  if (!isAuthenticated) {
-    return null; // Will be redirected by the effect
-  }
 
   // Render the appropriate stage form based on activeStage
   const renderStageForm = () => {

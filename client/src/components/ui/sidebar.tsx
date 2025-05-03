@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { useMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
-import { useAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import {
   ShoppingCart,
@@ -22,7 +21,7 @@ import {
   Menu,
   PersonStanding,
   HandHelping,
-  LogOut
+  Database
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -42,7 +41,6 @@ export function Sidebar({ onStageSelect, activeStage }: SidebarProps) {
   const [location] = useLocation();
   const isMobile = useMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(!isMobile);
-  const { user, logout } = useAuth();
   const { toast } = useToast();
 
   useEffect(() => {
@@ -50,22 +48,6 @@ export function Sidebar({ onStageSelect, activeStage }: SidebarProps) {
       setIsMenuOpen(true);
     }
   }, [isMobile]);
-
-  const handleLogout = async () => {
-    try {
-      await logout();
-      toast({
-        title: "Logged out",
-        description: "You have been successfully logged out.",
-      });
-    } catch (error) {
-      toast({
-        title: "Logout failed",
-        description: "An error occurred while logging out.",
-        variant: "destructive",
-      });
-    }
-  };
 
   // Define manufacturing stages
   const stages: StageLink[] = [
@@ -123,17 +105,15 @@ export function Sidebar({ onStageSelect, activeStage }: SidebarProps) {
               <h2 className="text-lg font-semibold mb-1">Manufacturing Process</h2>
               <p className="text-sm text-sidebar-muted">Tracking System</p>
               
-              {user && (
-                <div className="mt-4 flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-primary-light flex items-center justify-center text-white font-semibold">
-                    {user.name.charAt(0)}
-                  </div>
-                  <div className="ml-2">
-                    <p className="text-sm font-medium">{user.name}</p>
-                    <p className="text-xs text-sidebar-muted">{user.role}</p>
-                  </div>
+              <div className="mt-4 flex items-center">
+                <div className="w-8 h-8 rounded-full bg-primary-light flex items-center justify-center text-white font-semibold">
+                  D
                 </div>
-              )}
+                <div className="ml-2">
+                  <p className="text-sm font-medium">Demo User</p>
+                  <p className="text-xs text-sidebar-muted">Operator</p>
+                </div>
+              </div>
             </div>
             
             <nav className="flex-1 overflow-y-auto py-2">
@@ -160,15 +140,16 @@ export function Sidebar({ onStageSelect, activeStage }: SidebarProps) {
                 </div>
               </div>
               
-              <div className="px-4 py-6">
-                <Button 
-                  variant="outline"
-                  className="w-full text-sidebar-foreground border-sidebar-border flex items-center justify-center gap-2"
-                  onClick={handleLogout}
-                >
-                  <LogOut className="h-4 w-4" />
-                  <span>Logout</span>
-                </Button>
+              <div className="px-4 py-2">
+                <Link href="/data-table">
+                  <Button 
+                    variant="outline"
+                    className="w-full text-sidebar-foreground border-sidebar-border flex items-center justify-center gap-2 mb-3"
+                  >
+                    <Database className="h-4 w-4" />
+                    <span>View Process Data</span>
+                  </Button>
+                </Link>
               </div>
             </nav>
           </div>

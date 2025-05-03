@@ -4,14 +4,13 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Dashboard from "@/pages/Dashboard";
-import Login from "@/pages/Login";
-import { AuthProvider } from "@/context/AuthContext";
+import ProcessDataTable from "@/pages/ProcessDataTable";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Dashboard} />
-      <Route path="/login" component={Login} />
+      <Route path="/data-table" component={ProcessDataTable} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -20,10 +19,8 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <Router />
-        <Toaster />
-      </AuthProvider>
+      <Router />
+      <Toaster />
     </QueryClientProvider>
   );
 }
