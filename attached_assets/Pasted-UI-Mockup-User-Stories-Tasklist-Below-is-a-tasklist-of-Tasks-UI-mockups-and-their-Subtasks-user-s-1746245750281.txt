@@ -1,0 +1,111 @@
+UI Mockup User Stories Tasklist
+Below is a tasklist of Tasks (UI mockups) and their Subtasks (user stories) for each of the 18 stages. Teams can pick these up in v0 to generate wireframes - Attached in project document	
+1. Raw Material Receipt & Inspection
+Task: Design “Raw Material Receipt & QC” form
+As a Warehouse Clerk, I want a Batch/Lot Barcode scan field so that I can quickly log incoming batches.
+As a Warehouse Clerk, I want Weight (kg) and Quantity (pcs) number inputs so that stock data is accurate.
+As a Warehouse Clerk, I want side-by-side Diameter & Length inputs so that dimensions are captured efficiently.
+As a Quality Engineer, I want an Appearance dropdown and Supplier Certificate file upload so that QC records are complete.
+As a Quality Engineer, I want a QC Decision Accept/Reject radio so that the batch status updates automatically.
+2. Storage Bin Assignment
+Task: Create “Putaway” card
+As a Warehouse Clerk, I want a Batch Barcode scan field so that I can identify the item.
+As a Warehouse Clerk, I want Warehouse and Bin/Location dropdowns so that I can assign storage.
+As an Inventory Manager, I want an Available Stock summary so that I can verify levels before assignment.
+3. Slug Cutting
+Task: Sketch “Slug Cutting” form
+As an Operator, I want a New Slug Barcode scan field so that the slug is uniquely tracked.
+As an Operator, I want Blade Thickness and Cutting Speed inputs so that process parameters are logged.
+As an Operator, I want Weight and Length inputs so that slug specs are recorded.
+As an Operator, I want an Appearance dropdown so that I can note quality.
+As a System Integrator, I want start/end timestamps auto-populated on double-scan so that timing is captured.
+4. Deburring & Cleaning
+Task: Draft “Deburr & Clean” panel
+As an Operator, I want a Part Barcode scan field so that I can select the slug.
+As an Operator, I want a Visual Status radio (OK/Defect) so that I can flag issues.
+As an Operator, I want a Defect Notes textarea shown only on Defect so that I can describe problems.
+As a QA Lead, I want a red alert banner on Defect so that rework is immediately visible.
+5. Slug Heating & Forging
+Task: Design “Heat & Forge” form
+As an Operator, I want a Part Barcode scan field so that I know which slug I’m forging.
+As an Operator, I want Furnace Temp, Stroke Length, Offset inputs so that I can log settings.
+As an Operator, I want Measured Temp and Dimensions inputs so that I record output data.
+As an Operator, I want an Appearance dropdown so that I can note visual quality.
+As a Supervisor, I want inline validation hints on dimension inputs so that out-of-tolerance gets flagged.
+6. Trimming
+Task: Build “Trimming” form
+As an Operator, I want a Part Barcode scan field so that I select the forged slug.
+As an Operator, I want Stroke Length and Offset inputs so that I record trimming parameters.
+As an Operator, I want an Appearance dropdown so that I note trim quality.
+As a Supervisor, I want a summary panel of forging data for reference so that I can compare specs.
+7. Fettling
+Task: Compose “Fettling” card
+As an Operator, I want a Part Barcode scan field so that I select the trimmed part.
+As an Operator, I want a Visual Status radio (OK/Defect) so that I flag any issues.
+As an Operator, I want a Notes textarea so that I can describe any defects.
+As a QA Lead, I want a “Route to Rework?” modal prompt on Defect so that rework is enforced.
+8. In-Process Forging Inspection
+Task: Create “Forging QC” form
+As an Inspector, I want a Part Barcode scan field so that I link to the correct part.
+As an Inspector, I want an Inspector Name lookup so that sign-offs are tracked.
+As an Inspector, I want multiple Measurement inputs so that I record tolerances.
+As an Inspector, I want a Pass/Fail toggle so that results route automatically.
+As an Inspector, I want a Comments textarea so that I can note any issues.
+As a Manager, I want an email-alert preview on Fail so that I confirm notifications.
+9. Outsourced Hardening & Tempering
+Task: Design “Subcontract Job – Heat Treat” view
+As a Coordinator, I want Multi-select Part Barcodes scan so that I assign lots to the vendor.
+As a Coordinator, I want a Vendor lookup so that I select the service provider.
+As a Coordinator, I want Date Sent & Expected Return date pickers so that I set timelines.
+As a Coordinator, I want a Status dropdown so that I track job progress.
+As a Coordinator, I want overdue rows highlighted in orange so that I spot delays.
+10. Shot Blasting
+Task: Sketch “Subcontract Job – Shot Blast” list
+As a Coordinator, I want all fields from Heat Treat plus Shot Size dropdown so that I record media specs.
+As a Coordinator, I want Duration (mins) input so that I track process time.
+As a Coordinator, I want an “Overdue” badge so that late jobs stand out.
+11. Post-Blast Forging Inspection
+Task: Make “Post-Blast QC” form
+As an Inspector, I want a Part Barcode scan field so that I select blasted parts.
+As an Inspector, I want Measurements inputs so that I record tolerance checks.
+As an Inspector, I want an Appearance dropdown so that I note finish quality.
+As an Inspector, I want a Pass/Fail toggle so that batches advance or loop back.
+As a Supervisor, I want a “Mark Batch Blast OK” button on Pass so that I confirm status.
+12. Machining I
+Task: Build “Machining I” form
+As an Operator, I want a Part Barcode scan field so that I log the workpiece.
+As an Operator, I want Machine & Operator dropdowns/lookups so that I assign resources.
+As an Operator, I want Speed & Feed inputs so that I record cutting parameters.
+As an Operator, I want a Scrap Qty input so that I note rejects.
+As an Operator, I want a Status dropdown so that I mark Complete or Hold.
+As a Developer, I want the Submit button disabled until required fields are filled so that data is valid.
+13. Machining II
+Task: Duplicate “Machining I” form as “Machining II”
+As an Operator, I want the same fields as Machining I but with stage-specific badge and title.
+14. Machining III
+Task: Duplicate “Machining I” form as “Machining III”
+As an Operator, I want the same fields as Machining I but labelled for Stage III.
+15. Outsourced Nitrating
+Task: Create “Subcontract Job – Nitrating” view
+As a Coordinator, I want the Shot-Blast form fields plus Cycle Time (hrs) and Furnace Temp inputs.
+16. Final Inspection
+Task: Design “Final QC Inspection” form
+As an Inspector, I want a Part Barcode scan field so that I select the final part.
+As an Inspector, I want multiple Dim Checks inputs so that I verify all tolerances.
+As an Inspector, I want a Pass/Fail toggle so that only compliant parts advance.
+As an Inspector, I want a Comments textarea so that I note any issues.
+As a Supervisor, I want a “Move to FG Warehouse” button on Pass and “Send to Rework” on Fail so that inventory updates are triggered.
+17. Oiling & Packing
+Task: Compose “Oiling & Packing” form
+As a Warehouse Clerk, I want Multi-scan Part Barcodes so that I select multiple parts.
+As a Warehouse Clerk, I want Oil Batch & Packing Material dropdowns so that I record consumables.
+As a Warehouse Clerk, I want Quantity Packed & Total Weight inputs so that packing data is captured.
+As a Developer, I want a summary section showing QC pass date so that I confirm parts are inspection-clear.
+18. Packing & Dispatch
+Task: Draft “Dispatch” wizard modal
+As a Warehouse Clerk, I want Step 1 to Scan Finished Part Barcodes so that I select items to ship.
+As a Warehouse Clerk, I want Step 2 to capture Carrier, Tracking Number, and Dispatch Date.
+As a Warehouse Clerk, I want Step 3 to Upload Bill of Lading so that shipping docs are attached.
+As a Developer, I want a progress indicator and Back/Next navigation so that the multi-step flow is clear.
+ 
+
